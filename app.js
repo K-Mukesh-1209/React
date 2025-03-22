@@ -1,9 +1,18 @@
-const heading = React.createElement("div",
-    {id:'parent'},
-    React.createElement("div",
-        {id:'child'},
-        [React.createElement("h1",
-            {id:'heading'},
-            "Hello world from react"),React.createElement("h2",{id:'heading2'},"Hello world from react2")]));
-    const root = ReactDOM.createRoot(document.getElementById("root"));
-    root.render(heading)
+import React from "react";
+import ReactDOM from "react-dom/client";
+//React.createElement => ReactElement-JS object =>HTMLElement(render) 
+
+const heading = React.createElement(
+    "h1",
+    {id:"heading"},
+    "React"
+);
+console.log(heading)
+//JSX is not html in javascript ,it is like a html or XML like sentence
+//JSX (transpiled before it reaches the JS )-PARCEL -Babel
+
+//JSX => React.createElement => ReactElement-JS Object => HTMLElement(render)
+const jsxheading = <h1 id="heading"> React using jsx</h1>;
+console.log(jsxheading)
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(jsxheading);
