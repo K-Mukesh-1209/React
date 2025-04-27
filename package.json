@@ -2,9 +2,8 @@
   "name": "react",
   "version": "1.0.0",
   "description": "This is react course",
-  
   "scripts": {
-    "start":"parcel index.html",
+    "start": "parcel index.html",
     "build": "parcel build index.html",
     "test": "jest"
   },
@@ -22,7 +21,7 @@
   },
   "homepage": "https://github.com/K-Mukesh-1209/React#readme",
   "devDependencies": {
-    "parcel": "^2.14.1"
+    "parcel": "^2.14.4"
   },
   "dependencies": {
     "react": "^19.0.0",
