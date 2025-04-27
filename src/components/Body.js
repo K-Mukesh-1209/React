@@ -1,6 +1,6 @@
 import RestaurentCard from "./RestaurentCard";
 import resList from "../utils/mockData";
-import { useState,useEffect, use } from "react";
+import { useState,useEffect } from "react";
 
 const Body = ()=>{
     //Local state variable
