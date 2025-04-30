@@ -6,7 +6,7 @@ import Body from "./components/Body.js"
 import Aboutus from "./components/Aboutus.js";
 import { createBrowserRouter,RouterProvider,Outlet } from "react-router-dom";
 import Errmsg from "./components/Error.js";
-
+import RestaurentMenu from "./components/RestaurentMenu.js";
 
 //not using keys(not acceptable)<<<<<index as key<<<<<<<<<<<<unique id(best practice)
 
@@ -30,9 +30,13 @@ const approuter=createBrowserRouter([
                 element:<Body />,
             },
             {
-        path:"/about",
-        element:<Aboutus />
-    },]
+                path:"/about",
+                element:<Aboutus />
+            },
+            {
+                path:"/restaurant/:resId",
+                element:<RestaurentMenu/>
+            }]
     }, 
     
     ]);
