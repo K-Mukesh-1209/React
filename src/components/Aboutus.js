@@ -10,7 +10,7 @@ class Aboutus extends React.Component {
       location: "New York",
     };
   }
-ComponentDidMount() {
+componentDidMount() {
     // This method is called after the component is mounted
     console.log("Aboutus component mounted");
     

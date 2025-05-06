@@ -9,7 +9,7 @@ class ProfileClass extends React.Component {
       location: "New York",
     };
   }
-async ComponentDidMount() {
+async componentDidMount() {
     // This method is called after the component is mounted
     //console.log("ProfileClass component mounted");
     const data= await fetch("https://www.swiggy.com/mapi/restaurants/list/v5?lat=12.9715987&lng=77.5945627&collection=83639&tags=layout_CCS_Biryani&sortBy=&filters=&type=rcv2&offset=0&carousel=true&third_party_vendor=1");

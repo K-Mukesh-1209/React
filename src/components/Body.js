@@ -1,6 +1,7 @@
 import RestaurentCard from "./RestaurentCard";
 import resList from "../utils/mockData";
 import { useState,useEffect } from "react";
+import useOnlineStatus from "../utils/useOnlineStatus";
 
 const Body = ()=>{
     //Local state variable
@@ -17,24 +18,28 @@ const Body = ()=>{
         console.log(json);
         return json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
     };
+    if (useOnlineStatus() === false) {
+        return (
+            <h1>Looks like you are offline, please check your internet connection</h1>
+        );
+    }
 
     return (
         <div className="body">
             <div className="filter">
-                <div className="search-container">
-                    <input type="text"  className="search-input" value={search} onChange={(e)=>{
+                <div className="search m-2 p-2 bg-gray-200 rounded-lg flex">
+                    <input type="text"  className="border to-black rounded-2xl m-1 p-1" value={search} onChange={(e)=>{
                         setSearch(e.target.value);
                     }}/>
-                    <button className="search-btn"
+                    <button className="m-2 p-2 bg-green-200 rounded-lg"
                     onClick={()=>{
                         const filter_resList = resList.filter((res) => {
                             return res?.card?.card?.info?.name?.toLowerCase()?.includes(search.toLowerCase());
                         });
                         setRestaurents(filter_resList);
                         console.log(filter_resList);}}>Search</button>
-                    </div>
-                <button
-                className="filter-btn"
+                        <button
+                className="m-2 p-2 bg-red-200 rounded-lg"
                 onClick={() => {
                     var filter_resList = resList.filter((res) => {
                     const rating = res?.card?.card?.info?.avgRatingString;
@@ -46,8 +51,10 @@ const Body = ()=>{
                 >
                 Top rated Restaurants
                 </button>
+                    </div>
+                
             </div>
-            <div className="res-Container">
+            <div className="flex flex-wrap justify-center">
                 {restaurents.map((res) => (
                   <RestaurentCard key={res.card.card.info.id} resdata={res} />
                 ))}
