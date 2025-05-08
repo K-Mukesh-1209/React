@@ -1,4 +1,4 @@
-import RestaurentCard from "./RestaurentCard";
+import RestaurentCard,{PromotedRes} from "./RestaurentCard";
 import resList from "../utils/mockData";
 import { useState,useEffect } from "react";
 import useOnlineStatus from "../utils/useOnlineStatus";
@@ -23,7 +23,7 @@ const Body = ()=>{
             <h1>Looks like you are offline, please check your internet connection</h1>
         );
     }
-
+    const Promotedres = PromotedRes(RestaurentCard);
     return (
         <div className="body">
             <div className="filter">
@@ -55,9 +55,13 @@ const Body = ()=>{
                 
             </div>
             <div className="flex flex-wrap justify-center">
-                {restaurents.map((res) => (
-                  <RestaurentCard key={res.card.card.info.id} resdata={res} />
-                ))}
+                {restaurents.map((res) => 
+                    res.card.card.info.promoted ? (
+                        <Promotedres key={res.card.card.info.id} resdata={res} />
+                    ) : (
+                        <RestaurentCard key={res.card.card.info.id} resdata={res} />
+                    )
+                )}
             </div>
         </div>
     );
